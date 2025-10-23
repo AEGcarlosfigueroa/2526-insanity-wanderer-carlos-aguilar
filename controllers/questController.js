@@ -1,4 +1,5 @@
-const questService = require("./../services/questService.js")
+const questService = require("./../services/questService.js");
+const questRunner = require("./../questRunner/questRunner.js");
 
 async function getAllQuests(req, res)
 {
@@ -22,6 +23,25 @@ async function getAllQuests(req, res)
     }
 }
 
+async function createNewQuest(req,res)
+{
+    try
+    {
+        const quest = await questRunner.runQuest();
+        const createdQuest = await questService.insertNewQuest(quest);
+        return res.status(200).send(createdQuest);
+    }
+    catch(error)
+    {
+        return res.status(error?.status || 500).send({ 
+            status: "FAILED",
+            message: "Request failed",
+            data: { error: error?.message || error }
+        });
+    }
+}
+
 module.exports = {
-    getAllQuests
+    getAllQuests,
+    createNewQuest
 }
