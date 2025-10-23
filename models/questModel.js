@@ -1,13 +1,19 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const Pouch = new Schema({
-    coins: Number
+const Quest = new Schema({
+    day_number: Number,
+    day_week: String,
+    start_time: String,
+    end_time: String,
+    characters: [ String ]
 })
 
-const Equipment = new Schema({
-    instrument: String,
-    pouch: Pouch,
-    weight: Number
-})
+const questModel = mongoose.model('quests', Quest);
+
+module.exports = {
+    questModel
+}
+
+
 
