@@ -61,3 +61,7 @@ function getTimeString(timeSince12)
 
     return hourToReturn;
 }
+
+module.exports = {
+    executeNightfallEvent
+}
