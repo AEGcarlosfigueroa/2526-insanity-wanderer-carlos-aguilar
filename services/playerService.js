@@ -12,3 +12,7 @@ async function getAllPlayers()
         throw error;
     }
 }
+
+module.exports = {
+    getAllPlayers
+}

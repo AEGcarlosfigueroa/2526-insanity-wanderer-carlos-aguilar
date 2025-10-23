@@ -23,5 +23,6 @@ const Player = new Schema({
 const playerModel = mongoose.model('players', Player);
 
 module.exports = {
-    playerModel
+    playerModel,
+    Player
 }

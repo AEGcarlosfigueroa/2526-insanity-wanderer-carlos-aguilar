@@ -19,12 +19,15 @@ async function getLatestDateOfAllQuests()
 {
     try
     {
+        console.log(" enter getLatestDateOfAllQuests");
         const quests = await DB.questModel.find();
-        const latestDay = quests.reduce((obj, acc) => {
-            if(obj.day_number >= acc)
-            {
-                acc = obj.day_number
-            }
+
+        const latestDay = quests.reduce((acc, obj) => {
+        if(obj.day_number >= acc)
+        {
+            acc = obj.day_number
+        }
+        return acc;
         }, 0);
         return latestDay
 
