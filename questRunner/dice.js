@@ -4,8 +4,11 @@ function rollDice(number, faces)
 
     for(let i=0; i<number; i++)
     {
-        result += (Math.floor(Math.random*faces) + 1);
+        result += (Math.floor(Math.random()*faces) + 1);
     }
-
     return result;
+}
+
+module.exports = {
+    rollDice
 }

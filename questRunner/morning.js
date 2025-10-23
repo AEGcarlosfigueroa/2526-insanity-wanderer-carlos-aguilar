@@ -40,7 +40,7 @@ async function initialQuestSetup()
 
     console.log(participatingPlayers);
 
-    quest.characters_start = participatingPlayers;
+    quest.characters_start = JSON.parse(JSON.stringify(participatingPlayers));
 
     return [quest, participatingPlayers];
 }
